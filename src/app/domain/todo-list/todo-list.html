@@ -1,0 +1,78 @@
+<!-- src/app/domain/todo-list/todo-list.html -->
+<div class="todo-container">
+  <p-card>
+    <h2 class="title">Lista de Tarefas</h2>
+
+    <div class="filters">
+      <div class="filter-input">
+        <p-inputGroup>
+          <p-inputGroupAddon>
+            <i class="pi pi-search"></i>
+          </p-inputGroupAddon>
+          <input
+            pInputText
+            type="text"
+            placeholder="Filtrar por título"
+            [(ngModel)]="filterTitle"
+            (input)="loadTodos(1)"
+          />
+        </p-inputGroup>
+      </div>
+
+      <div class="filter-select">
+        <p-iftalabel class="w-full md:w-56">
+          <p-select
+            inputId="filterStatus"
+            [(ngModel)]="filterStatus"
+            [options]="statusOptions"
+            optionLabel="label"
+            optionValue="value"
+            [showClear]="false"
+            (ngModelChange)="loadTodos(1)"
+            class="filter-select"
+          ></p-select>
+          <label for="on_label">Status</label>
+        </p-iftalabel>
+      </div>
+    </div>
+
+    @if (todos$ | async; as todos) {
+    <div class="grid gap-3">
+      @for (todo of todos.data; track todo.id) {
+      <app-todo
+        [todo]="todo"
+        (toggleEdit)="onToggleEdit($event)"
+        (saveEdit)="onSaveEdit($event)"
+        (cancelEdit)="onCancelEdit($event)"
+        (deleteTodo)="onDeleteTodo($event)"
+        (toggleComplete)="onToggleComplete($event)"
+      />
+      }
+      <app-todo-create (addTodo)="addTodo($event)"></app-todo-create>
+    </div>
+
+    @if (todos.paging.pages > 1) {
+    <div class="pagination mt-4 flex justify-content-center gap-2">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-angle-left"
+        (click)="changePage(todos.paging.currentPage - 1)"
+        [disabled]="todos.paging.currentPage === 1"
+      ></button>
+
+      <span class="flex items-center px-2">
+        Página {{ todos.paging.currentPage }} de {{ todos.paging.pages }}
+      </span>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-angle-right"
+        (click)="changePage(todos.paging.currentPage + 1)"
+        [disabled]="currentPage === todos.paging.pages"
+      ></button>
+    </div>
+    } }
+  </p-card>
+</div>

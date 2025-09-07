@@ -1,0 +1,38 @@
+<!-- src/app/domain/todo-list/components/todo/todo.html -->
+@if(todo) {
+<div class="todo-item flex items-center justify-between gap-2">
+  <p-checkbox
+    [(ngModel)]="todo.isCompleted"
+    binary="true"
+    (onChange)="toggleComplete.emit(todo)"
+  ></p-checkbox>
+
+  @if(!todo.editing){
+    <span 
+      (click)="toggleEdit.emit(todo)" 
+      class="todo-text flex-1"
+      [class.completed]="todo.isCompleted">
+      {{ todo.title }}
+    </span>
+  } @else if(todo.editing === true){
+    <input
+      type="text"
+      pInputText
+      class="flex-1"
+      [value]="todo.title"    
+      (blur)="saveEdit.emit({ todo: todo, event: $event })"
+      (keydown.enter)="saveEdit.emit({ todo: todo, event: $event })"
+      (keydown.escape)="cancelEdit.emit()"
+      autofocus
+    />
+  }
+
+  <button
+    pButton
+    icon="pi pi-trash"
+    class="p-button-text p-button-danger flex-shrink-0"
+    (click)="deleteTodo.emit(todo.id)"
+  ></button>
+</div>
+
+}
