@@ -5,7 +5,7 @@
 
     <div class="filters">
       <div class="filter-input">
-        <p-inputGroup>
+        <p-inputGroup class="filter-input-group">
           <p-inputGroupAddon>
             <i class="pi pi-search"></i>
           </p-inputGroupAddon>
@@ -29,7 +29,7 @@
             optionValue="value"
             [showClear]="false"
             (ngModelChange)="loadTodos(1)"
-            class="filter-select"
+            class="filter-select-input"
           ></p-select>
           <label for="on_label">Status</label>
         </p-iftalabel>

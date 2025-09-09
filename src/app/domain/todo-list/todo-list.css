@@ -38,14 +38,21 @@
   flex: 1 1 100%;
 }
 
+.filter-select-input {
+  width: 100%;
+}
+
 .filter-input input {
   width: 100%;
+}
+
+.filter-input-group {
+  height: -webkit-fill-available;
 }
 
 @media (min-width: 768px) {
   .filter-input,
   .filter-select {
-    flex: 1 1 calc(50% - 0.25rem); 
+    flex: 1 1 calc(50% - 0.25rem);
   }
 }
-

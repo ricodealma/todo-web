@@ -1,59 +1,69 @@
-# ToDoList
+# 📋 To-Do List - Angular + PrimeNG
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Aplicação simples de **lista de tarefas** desenvolvida em **Angular**, utilizando **PrimeNG** para os componentes visuais.  
+O objetivo do projeto é praticar conceitos de frontend moderno, componentização e integração com backend em **.NET** (em progresso).
 
-## Development server
+## 🚀 Tecnologias
 
-To start a local development server, run:
+- [Angular](https://angular.io/) 18+
+- [PrimeNG](https://primeng.org/) (componentes UI)
+- [TypeScript](https://www.typescriptlang.org/)
+- [RxJS](https://rxjs.dev/)
+- [SCSS](https://sass-lang.com/) / CSS Grid e Flexbox
+- [.NET Backend (WIP)](https://dotnet.microsoft.com/)
+
+## 📂 Estrutura do Projeto
+
+```sh
+
+src/
+├── app/
+│    ├── domain/
+│    │    └── todo-list/
+│    │         ├── todo-list.ts
+│    │         ├── todo-list.html
+│    │         ├── todo-list.scss
+│    │         └── ...
+│    └── app.module.ts
+├── assets/
+├── environments/
+└── main.ts
+
+````
+
+## ⚙️ Como Rodar Localmente
 
 ```bash
+# Instalar dependências
+npm install
+
+# Rodar servidor de desenvolvimento
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Acesse no navegador
+http://localhost:4200/
+````
 
-## Code scaffolding
+## ✨ Funcionalidades
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- ✅ Adicionar tarefas
+- 🗑️ Remover tarefas
+- ✏️ Marcar como concluída
+- 🔍 Filtrar por título
+- 🎯 Filtrar por status (Todos, Completo, Incompleto)
+- 📱 Layout responsivo (grid/flex)
 
-```bash
-ng generate component component-name
-```
+## 📸 Prévia
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+![previa](./public/image.png)
 
-```bash
-ng generate --help
-```
+## 📌 Próximos Passos
 
-## Building
+- 🔗 Integração com backend em .NET
+- 💾 Persistência em banco (PostgreSQL)
+- 👤 Autenticação de usuários
+- 📊 Dashboard de tarefas
 
-To build the project run:
+---
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+👨‍💻 Desenvolvido por Rafael Santos
